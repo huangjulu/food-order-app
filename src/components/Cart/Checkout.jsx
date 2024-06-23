@@ -1,14 +1,14 @@
-import { checkoutActions } from "../../store/checkoutSlice";
-import { useSelector, useDispatch } from "react-redux";
+
+import { useSelector } from "react-redux";
 
 import Button from "../UIElements/Button";
 import Input from "../UIElements/Input";
 
-export default function CheckOut({onClick}){
+export default function CheckOut({onBack, onSubmit}){
     const cartTotal = useSelector(state => state.cart.total);
     const cartItems = useSelector(state => state.cart.items);
-    const dispatch = useDispatch();
     
+    //讓 Checkout 資料提交給後端(網址參考用)
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -33,7 +33,6 @@ export default function CheckOut({onClick}){
           .catch(error => {
               console.error('Error:', error);
           });
-
     }
 
     return(
@@ -45,9 +44,9 @@ export default function CheckOut({onClick}){
             <Input type="number" label="Phone"/>
             <Input type="email" label="Email"/>
             <div style={{display: 'flex', gap: '10px', width: '100%', justifyContent: 'flex-end'}}>
-                <Button btnClass="link-button" onClick={onClick}>Back</Button>
+                <Button btnClass="link-button" onClick={onBack}>Back</Button>
                 <form onSubmit={handleSubmit}>
-                    <Button onClick={() => dispatch(checkoutActions.setSubmit(true))}>Submit</Button>
+                    <Button onClick={onSubmit}>Submit</Button>
                 </form>
             </div>
         </div>
