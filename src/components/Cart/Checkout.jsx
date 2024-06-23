@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { checkoutActions } from "../../store/checkoutSlice";
 import { useSelector, useDispatch } from "react-redux";
 
