@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialSubmit = { 
     isSubmit: false,
+    customerData:[]
 }
 
 const checkoutSlice = createSlice({
@@ -12,6 +13,10 @@ const checkoutSlice = createSlice({
             state.isSubmit = action.payload;
             console.log(state.isSubmit, action.payload);
         },
+        getCustomerData(state, action){
+            state.customerData = action.payload;
+            console.log(state.customerData, action.payload);
+        }
     },
 })
 
