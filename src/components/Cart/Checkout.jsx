@@ -44,11 +44,11 @@ export default function CheckOut({onBack, onSubmit}){
         <div className="control">
             <h2>Checkout</h2>
             <h3>Total: ${cartTotal.toFixed(2)}</h3>
-            <form onSubmit={handleSubmit}>
                 <Input type="text" label="Name"/>
                 <Input type="text" label="Address" />
                 <Input type="number" label="Phone"/>
                 <Input type="email" label="Email"/>
+            <form onSubmit={handleSubmit}>
                 <div className="checkout-items-actions">
                     <Button btnClass="link-button" onClick={onBack}>Back</Button>
                     <Button onClick={onSubmit}>Submit</Button>
