@@ -14,7 +14,7 @@ const checkoutSlice = createSlice({
         },
         getCustomerData(state, action){
             state.customerData = action.payload;
-            console.log(customerData)
+            console.log(state.customerData)
         }
     },
 })
